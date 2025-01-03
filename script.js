@@ -514,47 +514,4 @@ document.addEventListener('DOMContentLoaded', function() {
             createQRCodeModal();
         });
     });
-});
-
-// 功能卡片点击交互
-const featureCards = document.querySelectorAll('.feature-card');
-const featureOverlay = document.querySelector('.feature-overlay');
-const featureDetail = document.querySelector('.feature-detail');
-
-// 功能描述映射
-const featureDescriptions = {
-    '电商产品摄影': '一键生成专业电商产品图，提升转化率',
-    'AI人像写真摄影': '智能人像生成，打造完美写真',
-    '时尚穿搭摄影': '时尚穿搭展示，展现个性风格',
-    '万能替换': '灵活替换图片元素，创造无限可能',
-    '爆款图片复刻': '一键复制热门风格，快速制作爆款',
-    '服装替换': '将模特服装智能转换为指定服装，更高效地展示您的服装产品',
-    '一键扩图': '智能扩展图片边界，完美还原场景细节',
-    '旧照修复上色': '修复老照片损坏，为黑白照片智能上色',
-    '文字水印消除': '智能去除图片中的文字和水印痕迹',
-    '超清放大': '提升图片分辨率，保持清晰度不失真',
-    '批量Lora': '批量处理图片风格，提高工作效率',
-    '万能生成': '一键生成各类风格图片，满足多样化需求'
-};
-
-featureCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const img = card.querySelector('img').cloneNode(true);
-        const title = card.querySelector('.feature-title').textContent;
-        const description = featureDescriptions[title];
-
-        featureDetail.innerHTML = '';
-        featureDetail.appendChild(img);
-        const descriptionP = document.createElement('p');
-        descriptionP.textContent = description;
-        featureDetail.appendChild(descriptionP);
-
-        featureOverlay.classList.add('active');
-        featureDetail.classList.add('active');
-    });
-});
-
-featureOverlay.addEventListener('click', () => {
-    featureOverlay.classList.remove('active');
-    featureDetail.classList.remove('active');
 }); 
